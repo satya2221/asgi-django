@@ -7,5 +7,17 @@
 </head>
 <body>
     <h1>Notif System</h1>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8000/ws/notifications/')
+
+        ws.onopen = ()=>{
+            console.log("Connected")
+        }
+
+        ws.onclose = ()=>{
+            console.log("Disconnected")
+        }
+    </script>
 </body>
 </html>
