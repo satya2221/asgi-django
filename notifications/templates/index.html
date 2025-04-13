@@ -7,12 +7,19 @@
 </head>
 <body>
     <h1>Notif System</h1>
+    <div id="notif"></div>
 
     <script>
         const ws = new WebSocket('ws://localhost:8000/ws/notifications/')
 
         ws.onmessage = (event) => {
-            console.log(event)
+            const data = JSON.parse(event.data)
+            const notifConatiner = document.getElementById('notif')
+
+            const newNotif = document.createElement('h3')
+            newNotif.textContent = data.message
+
+            notifConatiner.append(newNotif)
         }
 
         ws.onopen = ()=>{
