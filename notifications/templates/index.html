@@ -11,6 +11,10 @@
     <script>
         const ws = new WebSocket('ws://localhost:8000/ws/notifications/')
 
+        ws.onmessage = (event) => {
+            console.log(event)
+        }
+
         ws.onopen = ()=>{
             console.log("Connected")
         }
